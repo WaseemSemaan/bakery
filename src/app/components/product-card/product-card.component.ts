@@ -88,7 +88,13 @@ export class ProductCardComponent implements OnInit, OnDestroy{
     this.productService.delete(this.product.key);
     this.mode = 'view'
     let details = this.product.value.title + ', ' + this.product.value.price + '$'
-    this.logService.addLog(this.username,'products', ' deleted product ',this.product.key, '(' + details + ')')
+    if (this.product.value.price){
+      this.logService.addLog(this.username,'products', ' deleted product ',this.product.key, '(' + details + ')')
+
+    }
+    else{
+      this.logService.addLog(this.username,'products', ' deleted empty product' , '','')
+    }
 
   }
 
