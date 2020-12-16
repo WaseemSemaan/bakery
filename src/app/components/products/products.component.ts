@@ -85,7 +85,7 @@ export class ProductsComponent implements OnInit, OnDestroy{
        title: ''
        
      }
-     this.logService.addLog(this.userName,'products','added a new product','','')
+     this.logService.addLog(this.userName,'products','added a new empty product','','')
      this.productService.create(product)
    }
  
