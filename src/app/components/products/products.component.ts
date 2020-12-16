@@ -1,3 +1,4 @@
+import { LogService } from './../../services/log.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -20,10 +21,11 @@ export class ProductsComponent implements OnInit, OnDestroy{
   products;
   cartID
   userID
-  
+  userName
   appUser = <AppUser>{};
   constructor(
      private router: Router,
+     private logService: LogService,
      private accountService: AccountService,
      private cartService: ShoppingCartService,
      private productService : ProductService,
@@ -48,6 +50,7 @@ export class ProductsComponent implements OnInit, OnDestroy{
     
     this.subscription = this.accountService.getAccount().subscribe(appUser =>{
       this.appUser = appUser
+      this.userName = appUser.name
     })
 
     
@@ -83,6 +86,7 @@ export class ProductsComponent implements OnInit, OnDestroy{
        title: ''
        
      }
+     this.logService.addLog(this.userName,'products','added a new product','','')
      this.productService.create(product)
    }
  
