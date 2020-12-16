@@ -16,11 +16,11 @@ export class NavbarComponent implements OnInit,OnDestroy{
 
   constructor(
     private router: Router,
-    private userService: AccountService) { 
+    private accountService: AccountService) { 
   }
 
   ngOnInit(){
-    this.subscription = this.userService.getAccount().subscribe(appUser =>{
+    this.subscription = this.accountService.getAccount().subscribe(appUser =>{
       this.appUser = appUser
 
     } )   
@@ -32,12 +32,12 @@ export class NavbarComponent implements OnInit,OnDestroy{
 
   logout() {
     this.router.navigate(['/'])
-    this.userService.logout();
+    this.accountService.logout();
     this.appUser = null
   }
 
   login(){
-    this.userService.login(); 
+    this.accountService.login(); 
   }
 
   contact(){

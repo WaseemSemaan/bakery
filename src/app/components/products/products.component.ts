@@ -1,13 +1,12 @@
-import { LogService } from './../../services/log.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Observable } from 'rxjs/internal/Observable';
 
 import { AppUser } from '../../models/app-user';
 import { AccountService } from '../../services/account.service';
 import { ProductService } from '../../services/product.service';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
+import { LogService } from './../../services/log.service';
 
 @Component({
   selector: 'app-products',
@@ -50,12 +49,12 @@ export class ProductsComponent implements OnInit, OnDestroy{
     
     this.subscription = this.accountService.getAccount().subscribe(appUser =>{
       this.appUser = appUser
-      this.userName = appUser.name
+
+      if(appUser){
+        this.userName = appUser.name
+      }
+      
     })
-
-    
-
-   
    }
 
 
