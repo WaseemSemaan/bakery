@@ -19,9 +19,12 @@ export class ShoppingCartService {
 
        
 
-      getCart(id) {
-        return this.db.object('/shopping-carts/' + id)
-      }
+  getCart(id) {
+
+
+
+    return this.db.object('/shopping-carts/' + id)
+  }
 
 
 
