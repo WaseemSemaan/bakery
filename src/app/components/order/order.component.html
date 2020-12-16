@@ -1,0 +1,36 @@
+
+<div class="col-6">
+    <div class="card" >
+        <div class="card-body">
+          <h2 class="card-title">Order Summary</h2>
+          <br>
+          
+          <p> <b>Customer Name: </b> <i>{{order.shipping.name}}</i> </p>
+          <p> <b>Customer City: </b> <i>{{order.shipping.city}}</i> </p>
+          <p> <b>Customer Address: </b> <i>{{order.shipping.address}}</i> </p>
+          <p> <b>Date Placed: </b> <i>{{order.date | date}}</i> </p>
+          <p> <b>Order ID: </b> <i>{{ id }}</i> </p>
+          <ul class="list-group list-group-flush">
+              <li *ngFor= "let item of items | async "  class="list-group-item">
+                {{ item.quantity }} x {{ item.title }}  {{item.price | currency:'USD': true}}
+                <div class="float-right">
+                  {{ item.totalPrice | currency:'USD': true}}
+                </div>
+              </li>
+              <li *ngIf = "points" class="list-group-item" >
+                {{ points }} x Points
+                <div class="float-right">
+                  -{{ pointsPrice | currency:'USD': true}}
+                </div>
+              </li>
+              
+              <li class="list-group-item">
+                <b>TOTAL: </b>
+                <div class="float-right">
+                  <b> {{ order.price | currency:'USD': true }} </b>
+                </div>
+              </li>
+          </ul>
+        </div>
+    </div>
+</div>

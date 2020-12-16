@@ -1,0 +1,23 @@
+<h1>All Messages</h1>
+<br>
+<br>
+<table class="table table-hover  white-background">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor = "let message of messages | async">
+        <td>{{ message.payload.val().full_name }}</td>
+        <td>{{ message.payload.val().dateSent | date}}</td>
+        <td>{{ message.payload.val().status }}</td>
+      <td>
+        <a [routerLink]="['/admin/messages/',message.payload.key]">View Message</a>
+      </td>
+    </tr>
+  </tbody> 
+</table>

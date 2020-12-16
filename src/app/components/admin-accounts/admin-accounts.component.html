@@ -1,0 +1,32 @@
+<h1>accounts</h1>
+<table class="table table-hover white-background">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>account ID</th>
+      <th>account Orders</th>
+      <th>account Messages</th>
+      <th></th>
+
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor = "let account of accounts | async">
+        <td>{{ account.payload.val().name }}</td>
+        <td>{{ account.payload.key}}</td>
+        <td>
+            <a [routerLink]="['/admin/orders/ordersbyid',account.payload.key]">View Orders</a>
+
+        </td>
+        <td>
+            <a [routerLink]="['/admin/messages/messagesbyid/',account.payload.key]">View Messages</a>
+
+        </td>
+        <td *ngIf = "account.payload.key != 'wnKUTMpJ7HXXCxenvv6JRDnVn8u2__'">
+           <button class="btn btn-warning btn-admn" (click) = "makeAdmin(account.payload.key)" *ngIf="!account.payload.val().isAdmin" >Make Admin</button>
+           <button class="btn btn-danger btn-admn" (click) = "removeAdmin(account.payload.key)" *ngIf="account.payload.val().isAdmin">Remove Admin</button>
+        </td>
+    
+    </tr>
+  </tbody> 
+</table>

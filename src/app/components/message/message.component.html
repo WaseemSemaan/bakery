@@ -1,0 +1,58 @@
+<div class="contact-form white-background">
+    <h5> <b>Customer Name</b>  : <i>{{ message.full_name }}</i></h5>
+    <h5> <b>E-mail: </b> <i>{{ message.email  }}</i></h5>
+    <h5> <b>City: </b>  <i>{{ message.city }} </i> </h5>
+    <br>
+    <br>
+    <h5> <b>Content:</b>  </h5>
+    <p>{{ message.content }}</p>
+
+
+    <div *ngIf = "replies">
+      <h5 > <b>Replies:</b></h5>
+      <ul class="msgList">
+        <br>
+        <li *ngFor = "let reply of replies">
+          {{reply.dateSent | date}}
+          , {{ reply.content }}
+        </li>
+        <br>
+      </ul>
+    </div>
+  
+    
+  
+  
+  
+    <div >
+      <form   #f="ngForm" *ngIf = "
+  
+  
+      (appUser.isAdmin && message.status == 'Not Answered') ||  (!appUser.isAdmin && message.status == 'Answered')  
+      
+      ">
+        <div class="form-group">
+          <label for=""> <b>Reply: </b> </label>
+          <input #reply="ngModel" name="reply" [(ngModel)]="message.reply" type="text" class="form-control" required>
+        </div>
+  
+        <button 
+         [disabled]="!f.valid"
+         (click)="sendReply()"
+         class="btn btn-primary">Add Reply</button>
+      </form>
+    </div>
+  
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

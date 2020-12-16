@@ -1,0 +1,35 @@
+<form #f="ngForm" class="contact-form white-background w-50">
+    <div class="form-group">
+      <label for="">Full Name</label>
+      <input #full_name="ngModel" name="name" [(ngModel)]="message.full_name" type="text" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="full_name.touched && full_name.invalid">
+        <div *ngIf="full_name.errors.required">Your Full Name is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="">E-mail</label>
+        <input #email="ngModel" name="email" [(ngModel)]="message.email" type="email" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+          <div *ngIf="email.errors.required">Email is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="">City</label>
+      <input #city="ngModel" name="city" [(ngModel)]="message.city" type="text" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+        <div *ngIf="city.errors.required">City is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="">Your Message</label>
+        <input #content="ngModel" name="content" [(ngModel)]="message.content" type="text" class="form-control" rows="30"  required>
+        <div class="alert alert-danger" *ngIf="content.touched && content.invalid">
+          <div *ngIf="content.errors.required">you can't send empty content</div>
+        </div>
+      </div>
+    <button 
+      [disabled]="!f.valid"
+      (click)="sendMessage()"
+      class="btn btn-primary">Send Message</button>
+
+  </form>

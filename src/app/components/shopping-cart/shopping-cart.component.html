@@ -1,0 +1,39 @@
+
+<div class="card " >
+    <div class="card-body">
+      <h5 class="card-title "><b>Shopping Cart</b></h5>
+      <div *ngIf = "appUser && points" >
+        <p class="card-text">you have {{ points }} points <i class="fas fa-money-bill"></i>  <br>
+          <br>
+          <button (click)="usePoints()" *ngIf="mode && mode == 'checkout' &&canUsePoints && cart.totalPrice"  class="btn btn-warning"> Use points</button>
+          
+        </p>
+
+      </div>
+      
+      <ul class="list-group list-group-flush">
+          <li class="animate__animated animate__bounce" *ngFor= "let item of items | async"  class="list-group-item">
+            {{ item.quantity }} x {{ item.title }} {{item.price | currency:'USD': true}}
+            <div class="float-right">
+            --->  {{ item.totalPrice | currency:'USD': true}}
+            </div>
+          </li>
+          <li *ngIf="usedPoints != 0" class="list-group-item" >
+            {{usedPoints}} x Points
+            <div class="float-right">
+              --->  {{ pointsPrice | currency:'USD': true }} 
+            </div>
+          </li>
+          
+          <li class="list-group-item">
+            <b>TOTAL: </b>
+            <div *ngIf = "mode && mode == 'checkout'; else productsPage" class="float-right">
+              <b> {{ price | currency:'USD': true }} </b>
+            </div>
+            <ng-template #productsPage>
+              <b> {{ cart.totalPrice | currency:'USD': true }} </b>
+            </ng-template>
+          </li>
+      </ul>
+    </div>
+</div>

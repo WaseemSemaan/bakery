@@ -1,0 +1,21 @@
+<h1>My Orders</h1>
+<table class="table table-hover white-background">
+  <thead>
+    <tr> 
+      <th>Name</th>
+      <th>Date</th>
+      <th>Order Price</th>
+      <th></th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor="let order of orders | async">
+      <td>{{ order.payload.val().shipping.name }}</td>
+      <td>{{ order.payload.val().date | date}}</td>
+      <td>{{ order.payload.val().price | currency:'USD': true}}</td>
+      <td>
+        <a [routerLink]="['/my/orders/',order.payload.key]">View Order </a>
+      </td>
+    </tr>
+  </tbody> 
+</table>

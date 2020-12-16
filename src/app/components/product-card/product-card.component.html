@@ -1,0 +1,90 @@
+
+    <div class="container" *ngIf="appUser && appUser.isAdmin && mode == 'edit'; else viewProduct">
+        <div class="row">
+          <div class="col-4">
+            <img *ngIf="product.value.image != ''" [src]="product.value.image" class="productImg" height="200px">
+          </div>
+          <div class="col-8">
+            <form #f="ngForm" (ngSubmit)=save(f.value) >
+              <div class="row">
+                <div class="col-8">
+                  <div class="form-group">
+                    <label for="title">Title</label>
+                    <input  #title="ngModel" [(ngModel)]="product.value.title" name="title" id="title" type="text" class="form-control" required>
+                    <div class="alert alert-danger" *ngIf="title.touched && title.invalid">Title is required</div>
+                </div>
+            
+                <div class="form-group">
+                  <label for="price">Price</label>
+                  <input #price="ngModel" [(ngModel)]="product.value.price" name="price" id="price" type="text" class="form-control" required [min]="0">
+                  <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+                      <div *ngIf="price.errors.required">Price is required</div>
+                      <div *ngIf="price.errors.min">Price should be +</div>
+                    </div>
+              </div>
+  
+                <div class="form-group">
+                    <label for="image">Image URL</label>
+                    <input #image="ngModel" [(ngModel)]="product.value.image" name="image" id="image" type="text" class="form-control" required url>
+                    <div class="alert alert-danger" *ngIf="image.touched && image.invalid">
+                      <div *ngIf="image.errors.required">image is required</div>
+                      <div *ngIf="image.errors.url">invalid URL</div>
+                    </div>
+                </div>
+                </div>
+                <div class="col-4">
+                  <br>
+                  <br>
+                  <br>
+                  <button [disabled]="!f.valid" class="btn btn-success w-75">Save</button>
+                  <br>
+                  <br>
+                  <button  type="button" (click)="delete()" class="btn btn-danger w-75">Delete</button>
+                  <br>
+                  <br>
+                </div>
+              </div>         
+          </form>
+          </div>
+        </div>
+      </div>
+  
+  <ng-template #viewProduct>
+    <div *ngIf="product.value.price != ''" class="container">
+      <div class="row">
+        <div class="col-4">
+          <img  [src]="product.value.image" class="productImg" height="200px">
+        </div>
+        <div class="col-4">
+          <div class="productBody">
+            <h5 class="productTitle">{{ product.value.title }}</h5>
+            <p class="text">{{ product.value.price | currency:'USD':true }}</p>
+            
+          </div>
+        </div>
+        <div class="col-3">
+          <div class = "productButton w-100" *ngIf="shoppingCart">
+            <button *ngIf="productQuantity === 0 ; else updateQuantity"
+             (click)="addToCart()"
+              class="btn btn-warning">
+              Add to Cart
+            </button>
+                     
+            <ng-template #updateQuantity>
+              <div class="row no-gutters">
+                <div class="col-2"> <button (click)="removeFromCart()" class="btn"><i class="fas fa-minus"></i></button></div>
+                <div class="col text-center">{{ productQuantity }} in cart</div>
+                <div class="col-2"><button (click)="addToCart()" class="btn"><i class="fas fa-plus"></i></button></div>
+              </div>  
+            </ng-template>
+          </div>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-link" *ngIf="appUser && appUser.isAdmin" (click)="edit()"><i class="fas fa-edit"></i></button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+    
+  
+  

@@ -1,0 +1,49 @@
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+
+body{
+    padding-top: 100px;
+
+    font-family: 'Kodchasan', sans-serif;
+    background-image: url(https://wallpaperaccess.com/full/2737206.jpg);
+
+    background-size: 100%;
+    background-attachment: fixed
+
+    
+
+
+ 
+}
+
+
+
+text{
+    padding-top: 1000px;
+}
+
+.black{
+    color: black;
+}
+
+
+.white-background{
+    background-color: rgba(204, 204, 204, 0.7);
+    border-radius: 2%;
+
+}
+
+.grey-background{
+    background-color: rgba(190, 197, 139, 0.719);
+    border-radius: 2%;
+
+}
+
+
+
+.dropdown-menu{
+    margin-left: 10px;
+}
+

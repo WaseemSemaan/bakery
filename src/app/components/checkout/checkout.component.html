@@ -1,0 +1,52 @@
+
+
+
+<div class="row" *ngIf="cart">
+    <div class="col-5 white-background">
+    
+      <br>
+    <button (click) = "getLocation()"  class="btn btn-warning">Get my current location 
+    <i class="fas fa-location-arrow"></i>
+    </button>
+    <br>
+    <br> 
+    <form #f="ngForm">
+      <div class="form-group">
+        <label for="">Name</label>
+        <input #name="ngModel" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+          <div *ngIf="name.errors.required">Name is required.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Address</label>
+        <input #address="ngModel" name="address" [(ngModel)]="shipping.address" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="address.touched && address.invalid">
+          <div *ngIf="address.errors.required">Address is required.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">City</label>
+        <input #city="ngModel" name="city" [(ngModel)]="shipping.city" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+          <div *ngIf="city.errors.required">City is required.</div>
+        </div>
+      </div>
+      <button *ngIf= "cart.totalCount"
+        [disabled]="!f.valid"
+        (click)="placeOrder()"
+        class="btn btn-success">Place Order</button>
+    </form>
+    <br>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-5" >
+  
+      <app-shopping-cart [mode]="mode" [cart]="cart" [cartID] = "cartID"></app-shopping-cart>
+    </div>
+  </div>
+  
+  
+  
+  
+  
