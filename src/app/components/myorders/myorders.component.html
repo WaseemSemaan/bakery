@@ -5,6 +5,7 @@
       <th>Name</th>
       <th>Date</th>
       <th>Order Price</th>
+      <th>Status</th>
       <th></th>
     </tr>
   </thead> 
@@ -13,6 +14,7 @@
       <td>{{ order.payload.val().shipping.name }}</td>
       <td>{{ order.payload.val().date | date}}</td>
       <td>{{ order.payload.val().price | currency:'USD': true}}</td>
+      <td>{{ order.payload.val().status }}</td>
       <td>
         <a [routerLink]="['/my/orders/',order.payload.key]">View Order </a>
       </td>

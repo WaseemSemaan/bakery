@@ -45,4 +45,7 @@ export class OrderService {
 
     return this.db.list('/orders', ref => ref.orderByChild('userID').equalTo(userId));
   }
+  changeStatus(orderID,status){
+    this.db.object('/orders/' + orderID).update({status: status})
+  }
 }
