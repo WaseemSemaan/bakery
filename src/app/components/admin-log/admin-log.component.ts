@@ -10,10 +10,10 @@ import { LogService } from '../../services/log.service';
 export class AdminLogComponent implements OnInit {
   logs
   constructor(private logService: LogService) { 
-    this.logs = this.logService.getLogs().valueChanges()
   }
 
   ngOnInit(): void {
+    this.logs = this.logService.getLogs().valueChanges()
   }
 
 }
