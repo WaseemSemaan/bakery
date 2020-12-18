@@ -59,6 +59,7 @@ export class CheckoutComponent implements OnInit,OnDestroy{
       items: this.cart.items,
       shipping: this.shipping,
       price: this.cart.totalPrice,
+      status: 'Pending',
       userID: this.userID,
       usedPoints: this.accountService.getUsedPoints()
     }

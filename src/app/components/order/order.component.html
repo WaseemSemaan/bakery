@@ -3,13 +3,18 @@
     <div class="card" >
         <div class="card-body">
           <h2 class="card-title">Order Summary</h2>
+          <button class="btn btn-warning" *ngIf= "orderStatus == 'Pending'"
+          (click) = "markAsFulfilled()">Mark as Fulfilled</button>
           <br>
           
           <p> <b>Customer Name: </b> <i>{{order.shipping.name}}</i> </p>
           <p> <b>Customer City: </b> <i>{{order.shipping.city}}</i> </p>
+          
           <p> <b>Customer Address: </b> <i>{{order.shipping.address}}</i> </p>
           <p> <b>Date Placed: </b> <i>{{order.date | date}}</i> </p>
+          
           <p> <b>Order ID: </b> <i>{{ id }}</i> </p>
+          <p> <b>Status: </b> <i>{{order.status}}</i>   </p>
           <ul class="list-group list-group-flush">
               <li *ngFor= "let item of items | async "  class="list-group-item">
                 {{ item.quantity }} x {{ item.title }}  {{item.price | currency:'USD': true}}
@@ -33,4 +38,8 @@
           </ul>
         </div>
     </div>
+    <br>
+    <br>
+    
 </div>
+

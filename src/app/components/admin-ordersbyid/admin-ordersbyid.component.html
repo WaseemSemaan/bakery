@@ -5,14 +5,16 @@
       <th>Name</th>
       <th>Date</th>
       <th>Order Price</th>
+      <th>Status</th>
       <th></th>
     </tr>
   </thead> 
   <tbody>
     <tr *ngFor="let order of orders | async">
       <td>{{ order.payload.val().shipping.name }}</td>
-      <td>{{ order.payload.val().datePlaced | date}}</td>
-      <td>{{ order.payload.val().totalPrice |  currency:'USD': true }}</td>
+      <td>{{ order.payload.val().date | date}}</td>
+      <td>{{ order.payload.val().price |  currency:'USD': true }}</td>
+      <td>{{ order.payload.val().status  }}</td>
       <td>
         <a [routerLink]="['/admin/orders/',order.payload.key]">View Order </a>
       </td>

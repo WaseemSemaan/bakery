@@ -21,7 +21,8 @@ export class AdminOrdersComponent implements OnInit,OnDestroy {
           value:{
             date:  order.value['date'],
             shipping: order.value['shipping'],
-            price: order.value['price']
+            price: order.value['price'],
+            status: order.value['status']
           }
         }
         return temp
