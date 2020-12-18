@@ -4,7 +4,7 @@
         {{log.date | date}}:
         {{log.username}}
         {{log.act1}}
-        <a *ngIf = "log.type == 'messages'"  [routerLink]="['/admin/'+log.type,log.componentID]"><u>{{log.componentID}}</u></a>
+        <a *ngIf = "log.type == 'messages' || 'orders'"  [routerLink]="['/admin/'+log.type,log.componentID]"><u>{{log.componentID}}</u></a>
         {{log.act2}}
     </li>
     <br>
