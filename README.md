@@ -1,6 +1,12 @@
 # Bakery
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
+This project was developed with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
+
+## One Time Required Installations
+
+Make sure you have [Node.js](https://nodejs.org/en/download/) installed
+Make sure you have installed Angular CLI by running the following command in the command line ` npm install -g @angular/cli`
+Make sure you have updated your dependencies by navigating to the project and running `npm install` in the command line
 
 ## Development server
 
@@ -13,14 +19,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
