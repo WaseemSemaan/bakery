@@ -32,7 +32,6 @@ export class ProductCardComponent implements OnInit, OnDestroy{
     )
     {
    }
-   // comment
    ngOnInit(){
     this.accountSubscription = this.accountService.getAccount().subscribe(appUser =>{
       if (appUser) { this.username = appUser.name }
