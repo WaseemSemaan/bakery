@@ -1,3 +1,8 @@
+
+/**
+ * this service implements the functionality of orders which access the database
+ */
+
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { map } from 'rxjs/internal/operators/map';

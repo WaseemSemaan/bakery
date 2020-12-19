@@ -1,3 +1,7 @@
+/**
+ * this component shows the content of the order (order's summary)
+ */
+
 import { AppUser } from './../../models/app-user';
 import { AccountService } from './../../services/account.service';
 import { LogService } from 'src/app/services/log.service';
@@ -50,10 +54,6 @@ export class OrderComponent implements OnInit, OnDestroy {
     if (this.points > this.order.price ){
       this.pointsPrice = this.order.price
     }
-
-    
-
-
 
   }
 

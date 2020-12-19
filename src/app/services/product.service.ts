@@ -1,3 +1,8 @@
+
+/**
+ * this service implements the functionality of products which access the database
+ */
+
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';

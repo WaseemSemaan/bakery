@@ -1,3 +1,8 @@
+
+/**
+ * this service guard the routes for autherization of admins
+ */
+
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';

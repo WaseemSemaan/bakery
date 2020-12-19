@@ -1,3 +1,8 @@
+
+/**
+ * this component shows the user all of his orders
+ */
+
 import { AccountService } from '../../services/account.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';

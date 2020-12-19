@@ -1,3 +1,8 @@
+
+/**
+ * this component shows the admins orders placed by sepcific account by ID
+ */
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';

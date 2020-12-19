@@ -1,3 +1,10 @@
+
+/**
+ * this component is the product card which includes each product detials
+ * with add to cart button and (+),(-) for quantity buttons
+ * and for admin the option to edit the products
+ */
+
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../../services/product.service';
@@ -92,7 +99,7 @@ export class ProductCardComponent implements OnInit, OnDestroy{
 
     }
     else{
-      this.logService.addLog(this.username,'products', ' deleted empty product' , '','')
+      this.logService.addLog(this.username,'products', ' deleted empty product')
     }
 
   }

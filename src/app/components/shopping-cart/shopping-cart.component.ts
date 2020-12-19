@@ -1,3 +1,7 @@
+/**
+ * this component shows all the items in the shopping cart
+ */
+
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 
