@@ -1,3 +1,7 @@
+/**
+ * this component is the checkout view for the users
+ */
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';

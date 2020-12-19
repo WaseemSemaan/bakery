@@ -1,3 +1,7 @@
+/**
+ * this component show the admins all the orders of all accounts
+ */
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 

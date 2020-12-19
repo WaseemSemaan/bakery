@@ -1,3 +1,9 @@
+
+
+/**
+ * this component show the admins all the messages from all accounts
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MessageService } from '../../services/message.service';

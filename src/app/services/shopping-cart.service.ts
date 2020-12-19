@@ -1,3 +1,7 @@
+/**
+ * this service implements the functionality of shopping cart which access the database
+ */
+
 import { Observable } from 'rxjs/internal/Observable';
 import { take, map } from 'rxjs/operators';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
@@ -10,22 +14,12 @@ import { Product } from '../models/product';
 })
 export class ShoppingCartService {
 
-
-
-
   constructor(private db: AngularFireDatabase) { }
-
-
-
-       
 
   getCart(id) {
 
-
-
     return this.db.object('/shopping-carts/' + id)
   }
-
 
 
   async createCart(){

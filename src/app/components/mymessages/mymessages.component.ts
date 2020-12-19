@@ -1,3 +1,8 @@
+
+/**
+ * this component shows the user all of his messages
+ */
+
 import { AccountService } from '../../services/account.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy, OnInit } from '@angular/core';

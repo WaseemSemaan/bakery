@@ -1,3 +1,8 @@
+
+/**
+ * this service guard the routes for autherization of logged in users
+ */
+
 import { AccountService } from './account.service';
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, RouterStateSnapshot } from '@angular/router';

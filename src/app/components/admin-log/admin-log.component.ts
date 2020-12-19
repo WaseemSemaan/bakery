@@ -1,3 +1,8 @@
+
+/**
+ * this component shows all the actions log made by all admins
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 import { LogService } from '../../services/log.service';

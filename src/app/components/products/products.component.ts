@@ -1,3 +1,10 @@
+
+/**
+ * this component includes all the product cards and shopping cart
+ * with check out and clear cart button
+ * with the (+) button to add a new product
+ */
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -85,7 +92,7 @@ export class ProductsComponent implements OnInit, OnDestroy{
        title: ''
        
      }
-     this.logService.addLog(this.userName,'products','added a new empty product','','')
+     this.logService.addLog(this.userName,'products','added a new empty product')
      this.productService.create(product)
    }
  

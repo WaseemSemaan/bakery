@@ -1,3 +1,7 @@
+/**
+ * this component is the form of sending messages to the admins
+ */
+
 import { AccountService } from '../../services/account.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';

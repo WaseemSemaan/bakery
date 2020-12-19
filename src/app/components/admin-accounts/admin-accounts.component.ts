@@ -1,3 +1,8 @@
+/**
+ * this component serves as admin view for all the accounts
+ * 
+ */
+
 import { LogService } from './../../services/log.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -40,13 +45,13 @@ export class AdminAccountsComponent implements OnInit, OnDestroy {
   }
 
   makeAdmin(accountID,accountName){
-    this.logService.addLog(this.userName, 'admin status', 'changed ' + accountName + "'s status to Admin", '','')
+    this.logService.addLog(this.userName, 'admin status', 'changed ' + accountName + "'s status to Admin")
     this.accountService.makeAdmin(accountID)
   }
 
   removeAdmin(accountID, accountName){
     
-    this.logService.addLog(this.userName, 'admin status', 'changed ' + accountName + "'s status to normal account", '','')
+    this.logService.addLog(this.userName, 'admin status', 'changed ' + accountName + "'s status to normal account")
     this.accountService.removeAdmin(accountID)
   }
 

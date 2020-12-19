@@ -1,3 +1,8 @@
+
+/**
+ * this service implements the functionality of messages which access the database
+ */
+
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 

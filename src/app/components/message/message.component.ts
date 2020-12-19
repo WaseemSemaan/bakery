@@ -1,3 +1,7 @@
+/**
+ * this component shows the content of the message and the form to send a reply
+ */
+
 import { AppUser } from '../../models/app-user';
 import { AccountService } from '../../services/account.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
