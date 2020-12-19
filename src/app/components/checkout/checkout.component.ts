@@ -108,9 +108,9 @@ export class CheckoutComponent implements OnInit,OnDestroy{
       this.http.get<any>('http://open.mapquestapi.com/geocoding/v1/reverse?key=EB5LwyiUfpvMcnajd9HKSIr72g9oASut&location='+ position.coords.latitude + ',' + position.coords.longitude +'&includeRoadMetadata=true&includeNearestIntersection=true&thumbMaps=true').subscribe({
               next: data => {
                 console.log(data);
-                if (confirm('is your address:  ' + data.results[0].locations[0].adminArea5 + ' ' + data.results[0].locations[0].street + '?' )){
+                if (confirm('is ' + data.results[0].locations[0].adminArea5 + ', ' + data.results[0].locations[0].street + ' your correct address?' )){
                   this.shipping.address = data.results[0].locations[0].street;
-                this.shipping.city = data.results[0].locations[0].adminArea5;
+                  this.shipping.city = data.results[0].locations[0].adminArea5;
                 }
                 
               },

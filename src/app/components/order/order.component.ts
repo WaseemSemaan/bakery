@@ -1,3 +1,4 @@
+import { AppUser } from './../../models/app-user';
 import { AccountService } from './../../services/account.service';
 import { LogService } from 'src/app/services/log.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -16,6 +17,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   orderSubscription: Subscription
   accountSubscription
   items
+  appUser
   userName
   points
   orderStatus
@@ -40,6 +42,7 @@ export class OrderComponent implements OnInit, OnDestroy {
       this.pointsPrice = this.points > this.order['price'] ? this.order['price'] : this.points
     } )
     this.accountSubscription = this.accountService.getAccount().subscribe(appUser => {
+      this.appUser = appUser
       this.userName = appUser.name
     })
     this.items = this.orderService.getItems(this.id).valueChanges()
@@ -59,7 +62,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   }
 
   markAsFulfilled(){
-    this.logService.addLog(this.userName, 'orders', 'fulfilled order: ', this.id, '' )
+    this.logService.addLog(this.userName, 'orders', 'marked order: ', this.id, ' as "Fulfilled"' )
     this.orderService.changeStatus(this.id,'Fulfilled')
   }
 
