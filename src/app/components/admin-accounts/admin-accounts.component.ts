@@ -14,6 +14,7 @@ export class AdminAccountsComponent implements OnInit, OnDestroy {
   accounts;
   accountSubscription: Subscription
   isAdmin
+  userName
   constructor(
     private logService: LogService,
     private router: Router,
@@ -23,7 +24,7 @@ export class AdminAccountsComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.accountSubscription = this.accountService.getAccount().subscribe(appUser =>{
-
+      this.userName = appUser.name
 
       if (!appUser.isAdmin){
 
@@ -38,11 +39,14 @@ export class AdminAccountsComponent implements OnInit, OnDestroy {
     this.accountSubscription.unsubscribe()
   }
 
-  makeAdmin(accountID){
+  makeAdmin(accountID,accountName){
+    this.logService.addLog(this.userName, 'admin status', 'changed ' + accountName + "'s status to Admin", '','')
     this.accountService.makeAdmin(accountID)
   }
 
-  removeAdmin(accountID){
+  removeAdmin(accountID, accountName){
+    
+    this.logService.addLog(this.userName, 'admin status', 'changed ' + accountName + "'s status to normal account", '','')
     this.accountService.removeAdmin(accountID)
   }
 
