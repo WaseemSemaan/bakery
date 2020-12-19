@@ -17,7 +17,7 @@
               <p> <b>Status: </b> <i>{{order.status}}</i>   </p>
             </div>
             <div>
-              <button class="btn btn-warning" *ngIf= "orderStatus == 'Pending'"
+              <button class="btn btn-warning" *ngIf= "orderStatus == 'Pending' && appUser.isAdmin "
                       (click) = "markAsFulfilled()">Mark as Fulfilled</button>
             </div>
           </div>

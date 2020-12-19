@@ -74,7 +74,7 @@ export class ProductsComponent implements OnInit, OnDestroy{
      }
 
      else{
-      window.alert('you have to login first')
+      window.alert('You have to login first')
      }
    }
 
