@@ -9,3 +9,4 @@ export class AppUser {
         return this.points
     }
 }
+      
